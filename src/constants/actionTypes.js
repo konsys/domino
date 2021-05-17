@@ -1,0 +1,5 @@
+export const START_GAME = 'START_GAME';
+export const REFRESH_FICHAS = 'REFRESH_FICHAS';
+export const REFRESH_BOARD = 'REFRESH_BOARD';
+export const UPDATE_GAME_STATUS = 'UPDATE_GAME_STATUS';
+export const TOGGLE_TURN = 'TOGGLE_TURN';

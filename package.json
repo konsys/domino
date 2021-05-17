@@ -1,0 +1,60 @@
+{
+  "name": "react-domino",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.prod.js --env.production -p",
+    "start": "webpack-dev-server --config webpack.dev.js --open",
+    "start-ext": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0",
+    "lint": "eslint 'src/**'; exit 0",
+    "lint-fix": "eslint 'src/**' --fix; exit 0",
+    "serve": "webpack serve --config ./webpack.dev.js --progress"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^8.6.1",
+    "lodash.pullat": "^4.6.0",
+    "prop-types": "^15.7.2",
+    "random-words": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dnd": "^14.0.2",
+    "react-dnd-touch-backend": "^14.0.0",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.4",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-react": "^7.23.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "react-hot-loader": "^4.13.0",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.37.0",
+    "webpack-bundle-size-analyzer": "^3.1.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "eslintIgnore": [
+    "*.png",
+    "*.svg",
+    "*.css"
+  ]
+}

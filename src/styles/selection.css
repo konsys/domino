@@ -1,0 +1,118 @@
+a {
+  text-decoration: none;
+}
+
+.selection-wrapper {
+  background-color: rgb(173, 208, 173);
+  height: 100%;
+}
+.selection-wrapper h1 {
+  font-weight: 100;
+  color: rgb(35 35 35);
+  margin: 0;
+  text-align: center;
+  padding: 1em;
+}
+
+.selection-flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.selection-flex p {
+  text-align: left;
+  color: white;
+  font-weight: 100;
+  margin: 2em 0px;
+  line-height: 1.4em;
+}
+
+div.selection-option-classic {
+  box-shadow: rgba(64, 78, 67, 0.55) 1px 1px 4px 0px;
+  border-radius: 0.5em;
+  background: rgba(152, 179, 152, 0.9);
+  margin: 1em 2em;
+  padding: 2em;
+  box-sizing: border-box;
+  text-align: center;
+  width: 30em;
+}
+
+div.selection-option-multi {
+  margin: 1em 2em;
+  text-align: center;
+  width: 30em;
+}
+
+div.selection-option-multi-box {
+  box-shadow: rgba(64, 78, 67, 0.55) 1px 1px 4px 0px;
+  border-radius: 0.5em;
+  background: rgba(152, 179, 152, 0.9);
+  margin: unset;
+  box-sizing: border-box;
+  padding: 2em;
+  width: 100%;
+}
+
+.selection-option p {
+  color: white;
+  font-weight: 100;
+}
+
+img.imac {
+  margin-top: 1em auto;
+  width: 22em;
+}
+
+img.iphone {
+  margin-top: 1em auto;
+  width: 12em;
+}
+
+img.ipad {
+  margin-top: 1em auto;
+  width: 17em;
+}
+
+button.selection-button {
+  cursor: pointer;
+  margin: 2em auto 0;
+  color: rgb(255, 255, 255);
+  background-color: rgb(64, 78, 67);
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  font-size: 1em;
+}
+
+button.selection-button-host {
+  cursor: pointer;
+  display: block;
+  margin: 2em auto 1em;
+  color: rgb(255, 255, 255);
+  background-color: rgb(64, 78, 67);
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  font-size: 1em;
+}
+
+input.slection-input {
+  text-transform: lowercase;
+  text-align: left;
+  display: block;
+  width: 100%;
+  padding: 0.5em 4.4em 0.5em 0.5em;
+  font-size: 0.9em;
+  font-weight: 400;
+  line-height: 2.5em;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
