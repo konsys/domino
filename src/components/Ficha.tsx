@@ -8,7 +8,7 @@ function handleDrag(event: any, ficha: any) {
 }
 
 interface IProps {
-  value: string[];
+  value: number[];
   fichaId: number;
   player?: string;
   gameId?: string;

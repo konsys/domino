@@ -1,5 +1,5 @@
 export interface IFicha {
-  value: string[];
+  value: number[];
   gameId: string;
   player: string;
   position: number;

@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { STYLES } from '../assets/styling';
 import { calcDots } from '../helpers/calcDots';
 
-function Face(props: { value: string }) {
+function Face(props: { value: number }) {
   let i = 0;
   const dotPattern = calcDots(props.value);
 
@@ -66,9 +65,5 @@ function Face(props: { value: string }) {
     </div>
   );
 }
-
-Face.propTypes = {
-  value: PropTypes.number.isRequired,
-};
 
 export default Face;
