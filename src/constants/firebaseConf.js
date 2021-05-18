@@ -1,13 +1,13 @@
 const firebaseConf = {
-  apiKey: 'AIzaSyBDD9KrBXd2CseJGblG6QIX4Y_EpDlOehk',
-  authDomain: 'domino-d9509.firebaseapp.com',
+  apiKey: 'AIzaSyDkvYEeI7dqa59CTyjdmPtd3XtEVHnR_Lg',
+  authDomain: 'domino-88714.firebaseapp.com',
   databaseURL:
-    'https://domino-d9509-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'domino-d9509',
-  storageBucket: 'domino-d9509.appspot.com',
-  messagingSenderId: '1038231643801',
-  appId: '1:1038231643801:web:58a4fd7606e84cb6ddba08',
-  measurementId: 'G-BFNPQ9JGE6',
+    'https://domino-88714-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'domino-88714',
+  storageBucket: 'domino-88714.appspot.com',
+  messagingSenderId: '532373858170',
+  appId: '1:532373858170:web:41a8106406fa069142d8c3',
+  measurementId: 'G-4QSQPLCE2E',
 };
 
 export default firebaseConf;

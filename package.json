@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js --env.production -p",
-    "start": "webpack-dev-server --config webpack.dev.js --open",
+    "start": "webpack serve --config ./webpack.dev.js --progress",
     "start-ext": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0",
     "lint": "eslint 'src/**'; exit 0",
     "lint-fix": "eslint 'src/**' --fix; exit 0",
