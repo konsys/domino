@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { STYLES } from '../assets/styling';
 import { calcDots } from '../helpers/calcDots';
 
-function Face(props) {
+function Face(props: any) {
   let i = 0;
   const dotPattern = calcDots(props.value);
 
@@ -68,7 +68,7 @@ function Face(props) {
 }
 
 Face.propTypes = {
-  value: PropTypes.number.isRequired
+  value: PropTypes.number.isRequired,
 };
 
 export default Face;

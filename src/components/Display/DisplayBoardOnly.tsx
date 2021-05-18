@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FichaDisplay from './FichaDisplayBoard';
 import { boardRenderHelperDisplay } from '../../helpers/boardRenderHelper';
-import { fichaRenderHelperDisplay } from '../../helpers/fichaRenderHelper.ts';
-import { STYLES } from './styling';
+import { fichaRenderHelperDisplay } from '../../helpers/fichaRenderHelper';
+import { BOARD_STYLES } from './styling';
 import c from '../../constants';
 import domino from '../../assets/icons/domino.svg';
 
-const PlayBoard = ({ fichas, gameStatus, gameId }) => {
+export const PlayBoard = ({ fichas, gameStatus, gameId }: any) => {
   const { activePlayer } = gameStatus;
   const { fichasGridDisplay } = c;
 
@@ -16,15 +16,15 @@ const PlayBoard = ({ fichas, gameStatus, gameId }) => {
     : Array(40).fill(null);
 
   return (
-    <div style={STYLES.board} className="board">
-      <div style={STYLES.board.playable}>
+    <div style={BOARD_STYLES.board} className="board">
+      <div style={BOARD_STYLES.playable}>
         {renderedOutput.map((ficha, i) =>
           ficha ? (
             <div
               key={i}
-              id={fichasGridDisplay[i]}
+              id={fichasGridDisplay[i]?.toString()}
               className="path"
-              style={STYLES.board.path}
+              style={BOARD_STYLES.path}
             >
               <FichaDisplay
                 value={ficha.value}
@@ -34,28 +34,28 @@ const PlayBoard = ({ fichas, gameStatus, gameId }) => {
           ) : (
             <div
               key={i}
-              id={fichasGridDisplay[i]}
-              className={fichasGridDisplay[i] ? 'path' : null}
+              id={fichasGridDisplay[i]?.toString()}
+              className={fichasGridDisplay[i] ? 'path' : undefined}
             >
               &nbsp;
             </div>
           )
         )}
       </div>
-      <div style={STYLES.board.status} className="status">
-        <div style={STYLES.board.status.playerInfo}>
+      <div style={BOARD_STYLES.status} className="status">
+        <div style={BOARD_STYLES.playerInfo}>
           {activePlayer === 'p1' && (
-            <img src={domino} alt="ficha" style={STYLES.board.status.icon} />
+            <img src={domino.name} alt="ficha" style={BOARD_STYLES.icon} />
           )}
           p1
         </div>
-        <div style={STYLES.board.status.playerInfo}>
+        <div style={BOARD_STYLES.playerInfo}>
           {activePlayer === 'p2' && (
             <img
-              src={domino}
+              src={domino.name}
               alt="ficha"
               style={{
-                ...STYLES.board.status.icon,
+                ...BOARD_STYLES.icon,
                 top: '0.33rem',
                 left: '8.75rem',
               }}
@@ -64,7 +64,7 @@ const PlayBoard = ({ fichas, gameStatus, gameId }) => {
           p2
         </div>
 
-        <div style={STYLES.board.status.gameInfo}>{gameId}</div>
+        <div style={BOARD_STYLES.gameInfo}>{gameId}</div>
       </div>
     </div>
   );
@@ -75,5 +75,3 @@ PlayBoard.propTypes = {
   fichas: PropTypes.object,
   gameStatus: PropTypes.object,
 };
-
-export default PlayBoard;

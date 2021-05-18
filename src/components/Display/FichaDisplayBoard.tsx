@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Face from '../Face';
 import { STYLES } from '../../assets/styling';
-import { STYLES as TRANSFORM } from './styling';
+import { BOARD_STYLES as TRANSFORM } from './styling';
 import '../../styles/ficha.css';
 
-function FichaDisplay({ value, fichaStyling }) {
+function FichaDisplay({ value, fichaStyling }: any) {
   return (
     <div
       style={{
         ...STYLES.activePlayersHand.ficha,
-        ...TRANSFORM.fichaStyling[fichaStyling]
+        ...TRANSFORM.fichaStyling[fichaStyling],
       }}
     >
       <Face value={value[0]} />
@@ -23,7 +23,7 @@ function FichaDisplay({ value, fichaStyling }) {
 FichaDisplay.propTypes = {
   value: PropTypes.array.isRequired,
   fichaStyling: PropTypes.string,
-  transform: PropTypes.object
+  transform: PropTypes.object,
 };
 
 export default FichaDisplay;

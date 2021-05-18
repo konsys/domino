@@ -4,19 +4,19 @@ import { ItemTypes } from '../../constants/itemTypes';
 import { makeMove } from '../../actions';
 
 const dropZoneTarget = {
-  drop(props, monitor) {
+  drop(props: any, monitor: any) {
     const direction = props.side === 'left' ? -99 : 99;
     props.dispatch(
       makeMove({ ...monitor.getItem(), writable: true }, direction)
     );
-  }
+  },
 };
 
-function collect(connect, monitor) {
+function collect(connect: any, monitor: any) {
   return {
     connectDropTarget: connect.dropTarget(),
     drop: monitor.getItem(),
-    isOver: monitor.isOver()
+    isOver: monitor.isOver(),
   };
 }
 
@@ -25,8 +25,8 @@ const DropZone = ({
   connectDropTarget,
   children,
   dropStyling,
-  isOver
-}) => {
+  isOver,
+}: any) => {
   return connectDropTarget(
     <div
       id={side}

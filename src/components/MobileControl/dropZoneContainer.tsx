@@ -1,5 +1,5 @@
 import React from 'react';
-import DropZone from './dropZone';
+import DropZone from './DropZone';
 import PropTypes from 'prop-types';
 import FichaDisplay from './FichaDisplay';
 
@@ -7,7 +7,11 @@ import { getLeftMostFicha, getRightMostFicha } from '../../helpers/matchers';
 import SpinningFicha from '../../assets/SpinningFicha';
 import Overlay from './Overlay';
 
-const DropZoneContainer = ({ dispatch, fichasInPlay, isActivePlayer }) => {
+export const DropZoneContainer = ({
+  dispatch,
+  fichasInPlay,
+  isActivePlayer,
+}: any) => {
   let leftMost, rightMost, only;
 
   if (!Object.keys(fichasInPlay).length) {
@@ -94,7 +98,5 @@ const DropZoneContainer = ({ dispatch, fichasInPlay, isActivePlayer }) => {
 
 DropZoneContainer.propTypes = {
   dispatch: PropTypes.func,
-  fichasInPlay: PropTypes.object
+  fichasInPlay: PropTypes.object,
 };
-
-export default DropZoneContainer;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeMove, watchBoard } from '../actions';
 import PlayerStatus from './PlayerStatus';
 import { STYLES } from '../assets/styling';
@@ -8,8 +7,8 @@ import Ficha from './Ficha';
 import boardRenderHelper from '../helpers/boardRenderHelper';
 import c from '../constants';
 
-class PlayBoard extends React.Component {
-  constructor(props) {
+class PlayBoard extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
   }
 
@@ -17,7 +16,7 @@ class PlayBoard extends React.Component {
     this.props.dispatch(watchBoard(this.props.gameId));
   }
 
-  handleDrop(event, dispatch) {
+  handleDrop(event: any, dispatch: any) {
     let ficha = JSON.parse(event.dataTransfer.getData('ficha'));
     dispatch(makeMove(ficha, event.target.id));
   }
@@ -33,22 +32,22 @@ class PlayBoard extends React.Component {
       <div
         style={STYLES.board}
         className="board"
-        onDrop={event => {
+        onDrop={(event) => {
           this.handleDrop(event, dispatch);
           if (event.target.id) {
             document.getElementById(event.target.id).style.border = 'unset';
           }
         }}
-        onDragEnter={event => {
+        onDragEnter={(event: any) => {
           if (event.target.id && !event.target.childElementCount) {
             document.getElementById(event.target.id).style.border =
               '5px dotted #99b999';
           }
         }}
-        onDragOver={event => {
+        onDragOver={(event) => {
           event.preventDefault();
         }}
-        onDragLeave={event => {
+        onDragLeave={(event) => {
           if (event.target.id) {
             document.getElementById(event.target.id).style.border = 'unset';
           }
@@ -58,7 +57,7 @@ class PlayBoard extends React.Component {
         <div style={STYLES.board.playable}>
           {renderedOutput.map((ficha, i) =>
             ficha ? (
-              <div key={i} id={c.fichasGrid[i]} className="path">
+              <div key={i} id={c.fichasGrid[i]?.toString()} className="path">
                 <Ficha
                   value={ficha.value}
                   fichaId={ficha.fichaId}
@@ -69,8 +68,8 @@ class PlayBoard extends React.Component {
             ) : (
               <div
                 key={i}
-                id={c.fichasGrid[i]}
-                className={c.fichasGrid[i] ? 'path' : null}
+                id={c.fichasGrid[i]?.toString()}
+                className={c.fichasGrid[i] ? 'path' : undefined}
               >
                 &nbsp;
               </div>
@@ -82,13 +81,7 @@ class PlayBoard extends React.Component {
   }
 }
 
-PlayBoard.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  gameId: PropTypes.string.isRequired,
-  fichas: PropTypes.object
-};
-
-const propsFromState = state => {
+const propsFromState = (state: any) => {
   return { fichas: state.fichasInPlay };
 };
 

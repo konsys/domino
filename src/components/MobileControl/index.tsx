@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import { watchHand, watchGame, watchBoard, skipPlayer } from '../../actions';
-// import { DndContext } from 'react-dnd';
 import FichaTouch from './FichaTouch';
 import FichaTouchDragLayer from './FichaTouchDragLayer';
-// import { TouchBackend } from 'react-dnd-touch-backend';
-import DropZoneContainer from './dropZoneContainer';
+import { DropZoneContainer } from './dropZoneContainer';
 import '../../styles/mobileControl.css';
 import skip from '../../assets/icons/skip.svg';
 import closeSolid from '../../assets/icons/closeSolid.svg';
 
-const FichaTouchBundler = ({ ficha, player, gameId }) => {
+const FichaTouchBundler = ({ ficha, player, gameId }: any) => {
   return (
     <div style={{ display: 'inline' }}>
       <FichaTouch
@@ -35,7 +33,7 @@ const FichaTouchBundler = ({ ficha, player, gameId }) => {
   );
 };
 
-const MobileControl = (props) => {
+const MobileControl = (props: any) => {
   const [showGameCode, setShowGameCode] = useState('block');
 
   useEffect(() => {
@@ -48,11 +46,11 @@ const MobileControl = (props) => {
     }
   }, []);
 
-  const red = {
+  const red: CSSProperties = {
     backgroundColor: '#a27a7a',
     boxShadow: 'inset 0px 0px 8px #752a2a',
   };
-  const green = {
+  const green: CSSProperties = {
     backgroundColor: '#7aa27a',
     boxShadow: 'inset 0px 0px 8px #2a7541',
   };
@@ -69,7 +67,7 @@ const MobileControl = (props) => {
           >
             {gameId}
             <button onClick={() => setShowGameCode('none')}>
-              <img src={closeSolid} alt="close" style={{ width: '4em' }} />
+              <img src={closeSolid.name} alt="close" style={{ width: '4em' }} />
             </button>
           </div>
         )}
@@ -92,16 +90,19 @@ const MobileControl = (props) => {
             right: '1.3em',
           }}
         >
-          <img src={skip} alt="skip" style={{ width: '3em' }} />
+          <img src={skip.name} alt="skip" style={{ width: '3em' }} />
         </button>
-        <DropZoneContainer
-          fichasInPlay={fichasInPlay}
-          dispatch={dispatch}
-          isActivePlayer={gameStatus.activePlayer === player}
-        />
+
+        {/* 
+          TODO add valid element
+          <DropZoneContainer
+            fichasInPlay={fichasInPlay}
+            dispatch={dispatch}
+            isActivePlayer={gameStatus.activePlayer === player}
+          /> */}
 
         <div className="mobile-control-fichas-deck">
-          {Object.values(fichas).map((ficha, i) => (
+          {Object.values(fichas).map((ficha: any, i: number) => (
             <FichaTouchBundler
               ficha={ficha}
               gameId={gameId}
@@ -117,7 +118,7 @@ const MobileControl = (props) => {
   }
 };
 
-const mapToStateProps = (state, props) => {
+const mapToStateProps = (state: any, props: any) => {
   if (!props.location.state) {
     return state;
   } else {

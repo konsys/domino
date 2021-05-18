@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { watchGame, watchBoard } from '../../actions';
-import DisplayBoardOnly from './DisplayBoardOnly';
+import { PlayBoard } from './DisplayBoardOnly';
 
-const Display = props => {
+const Display = (props: any) => {
   useEffect(() => {
     if (props.location.state) {
       const { gameId } = props.location.state;
@@ -14,27 +14,25 @@ const Display = props => {
     }
   }, []);
 
-  if (props.location.state) {
-    return (
-      <DisplayBoardOnly
-        fichas={props.fichasInPlay}
-        gameId={props.gameId}
-        gameStatus={props.gameStatus}
-      />
-    );
-  } else {
-    return <Redirect to="/" />;
-  }
+  return props.location.state ? (
+    <PlayBoard
+      fichas={props.fichasInPlay}
+      gameId={props.gameId}
+      gameStatus={props.gameStatus}
+    />
+  ) : (
+    <Redirect to="/" />
+  );
 };
 
-const mapToStateProps = (state, props) => {
+const mapToStateProps = (state: any, props: any) => {
   if (!props.location.state) {
     return state;
   } else {
     return {
       fichasInPlay: state.fichasInPlay,
       gameStatus: state.gameStatus,
-      gameId: props.location.state.gameId
+      gameId: props.location.state.gameId,
     };
   }
 };

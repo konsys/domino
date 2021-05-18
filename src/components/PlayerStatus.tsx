@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Player from './Player.tsx';
+import Player from './Player';
 import { STYLES } from '../assets/styling';
 import { connect } from 'react-redux';
 
-function PlayerStatus(props) {
+function PlayerStatus(props: any) {
   const { status, gameId } = props;
 
   return (
@@ -38,7 +38,7 @@ function PlayerStatus(props) {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return { status: state.gameStatus };
 };
 

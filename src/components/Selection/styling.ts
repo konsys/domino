@@ -1,4 +1,4 @@
-export const styling = {
+export const styling: any = {
   box: {
     boxShadow: 'rgba(64, 78, 67, 0.55) 1px 1px 4px 0px',
     borderRadius: '0.5em',
@@ -7,7 +7,7 @@ export const styling = {
     display: 'inline-block',
     width: '100%',
     padding: '1.8em',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
 
   inlineButton: {
@@ -15,6 +15,6 @@ export const styling = {
     position: 'absolute',
     margin: '0px',
     top: '0.5em',
-    right: '0.4em'
-  }
+    right: '0.4em',
+  },
 };

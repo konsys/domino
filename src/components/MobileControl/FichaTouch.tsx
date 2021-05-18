@@ -7,23 +7,23 @@ import { DragSource } from 'react-dnd';
 import '../../styles/ficha.css';
 
 const fichaSource = {
-  beginDrag(props) {
+  beginDrag(props: any) {
     return props;
   },
-  endDrag(props) {
+  endDrag(props: any) {
     return props;
-  }
+  },
 };
 
-function collect(connect, monitor) {
+function collect(connect: any, monitor: any) {
   return {
     connectDragSource: connect.dragSource(),
     connectDragPreview: connect.dragPreview(),
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
   };
 }
 
-function FichaTouch(props) {
+function FichaTouch(props: any) {
   const { value, fichaStyling, isDragging, connectDragSource } = props;
 
   return connectDragSource(
@@ -33,7 +33,7 @@ function FichaTouch(props) {
         ...STYLES.fichaStyling[fichaStyling],
         bottom: 0,
         opacity: isDragging ? 0 : 1,
-        height: isDragging ? 0 : ''
+        height: isDragging ? 0 : '',
       }}
     >
       <Face value={value[0]} />
@@ -45,7 +45,7 @@ function FichaTouch(props) {
 
 FichaTouch.propTypes = {
   value: PropTypes.array.isRequired,
-  fichaStyling: PropTypes.string
+  fichaStyling: PropTypes.string,
 };
 
 export default DragSource(ItemTypes.FICHA, fichaSource, collect)(FichaTouch);

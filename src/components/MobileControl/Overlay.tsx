@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Overlay = ({ children, placement }) => {
+const Overlay = ({ children, placement }: any) => {
   const definedMargin = '2.5rem';
   const marginOffset =
     placement === 'left'
@@ -13,12 +13,12 @@ const Overlay = ({ children, placement }) => {
     placement === 'left'
       ? {
           backgroundImage: 'linear-gradient(180deg, #ffffff00 , #8db38d)',
-          backgroundColor: 'unset'
+          backgroundColor: 'unset',
         }
       : placement === 'right'
       ? {
           backgroundImage: 'linear-gradient(180deg, #8db38d, #ffffff00)',
-          backgroundColor: 'unset'
+          backgroundColor: 'unset',
         }
       : null;
   return (
@@ -28,7 +28,7 @@ const Overlay = ({ children, placement }) => {
         display: 'inline-block',
         position: 'relative',
         top: '-.35rem',
-        ...marginOffset
+        ...marginOffset,
       }}
     >
       <div
@@ -36,11 +36,11 @@ const Overlay = ({ children, placement }) => {
           backgroundColor: 'rgba(255, 255, 255, 0.25)',
           zIndex: 1,
           borderRadius: '0.33em',
-          ...gradientOverlay
+          ...gradientOverlay,
         }}
       >
         {React.cloneElement(children, {
-          transform: { zIndex: -1 }
+          transform: { zIndex: -1 },
         })}
       </div>
     </div>
@@ -49,7 +49,7 @@ const Overlay = ({ children, placement }) => {
 
 Overlay.propTypes = {
   children: PropTypes.object,
-  placement: PropTypes.string
+  placement: PropTypes.string,
 };
 
 export default Overlay;

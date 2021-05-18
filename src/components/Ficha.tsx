@@ -4,21 +4,21 @@ import Face from './Face';
 import { STYLES } from '../assets/styling';
 import '../styles/ficha.css';
 
-function handleDrag(event, ficha) {
+function handleDrag(event: any, ficha: any) {
   event.dataTransfer.setData('ficha', JSON.stringify(ficha));
 }
 
-function Ficha(props) {
+function Ficha(props: any) {
   const { value, fichaId, player, gameId, fichaStyling } = props;
   return (
     <div
       draggable
-      onDragStart={event =>
+      onDragStart={(event) =>
         handleDrag(event, { fichaId, player, value, gameId })
       }
       style={{
         ...STYLES.activePlayersHand.ficha,
-        ...STYLES.fichaStyling[fichaStyling]
+        ...STYLES.fichaStyling[fichaStyling],
       }}
     >
       <Face value={value[0]} />
@@ -34,7 +34,7 @@ Ficha.propTypes = {
   player: PropTypes.string,
   gameId: PropTypes.string,
   renderPos: PropTypes.number,
-  fichaStyling: PropTypes.string
+  fichaStyling: PropTypes.string,
 };
 
 export default Ficha;

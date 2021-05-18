@@ -8,8 +8,9 @@ import Hand from './Hand';
 import GameSelect from './GameSelect';
 import { STYLES } from '../assets/styling';
 
-class GameLoader extends React.Component {
-  constructor(props) {
+class GameLoader extends React.Component<any, any> {
+  private dispatch;
+  constructor(props: any) {
     super(props);
 
     this.state = {};
@@ -26,7 +27,7 @@ class GameLoader extends React.Component {
     this.dispatch(grabFichas(gameId, 'p1'));
   }
 
-  handleJoinGame(joinCode) {
+  handleJoinGame(joinCode: any) {
     const gameId = joinCode.current.value;
 
     this.setState({ gameId, player: 'p2' });
@@ -55,9 +56,5 @@ class GameLoader extends React.Component {
     }
   }
 }
-
-GameLoader.propTypes = {
-  dispatch: PropTypes.func
-};
 
 export default connect()(GameLoader);

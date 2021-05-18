@@ -7,7 +7,7 @@ import c from '../constants';
 import { v4 } from 'uuid';
 import { matchLeft, matchRight } from '../helpers/matchers';
 import { reconstructObject } from '../helpers/reconstructObject';
-import { fichaRenderHelper } from '../helpers/fichaRenderHelper.ts';
+import { fichaRenderHelper } from '../helpers/fichaRenderHelper';
 
 const { firebaseConf, types, gameStart } = c;
 
@@ -24,8 +24,8 @@ export const watchHand = (gameId: any, player: any) => {
   };
 };
 
-export const watchBoard = (gameId) => {
-  return (dispatch) => {
+export const watchBoard = (gameId: any) => {
+  return (dispatch: any) => {
     firebase
       .database()
       .ref(`${gameId}/board`)
@@ -35,8 +35,8 @@ export const watchBoard = (gameId) => {
   };
 };
 
-export const watchGame = (gameId) => {
-  return (dispatch) => {
+export const watchGame = (gameId: any) => {
+  return (dispatch: any) => {
     firebase
       .database()
       .ref(`${gameId}/gameStatus`)
@@ -48,9 +48,9 @@ export const watchGame = (gameId) => {
   };
 };
 
-export const startGame = (gameId, mode = 'classic') => {
+export const startGame = (gameId: any, mode = 'classic') => {
   const uplayedFichas = gameStart();
-  const readySet = {};
+  const readySet: any = {};
 
   uplayedFichas.forEach((ficha) => {
     const fichaId = v4();
@@ -72,8 +72,8 @@ export const startGame = (gameId, mode = 'classic') => {
   };
 };
 
-export const grabFichas = (gameId, player) => {
-  return (dispatch) => {
+export const grabFichas = (gameId: any, player: any) => {
+  return (dispatch: any) => {
     firebase
       .database()
       .ref(`${gameId}/uplayedFichas`)
@@ -84,14 +84,14 @@ export const grabFichas = (gameId, player) => {
   };
 };
 
-export const makeMove = (ficha, target) => {
+export const makeMove = (ficha: any, target: any) => {
   const { player, gameId } = ficha;
 
   const game = firebase.database().ref(gameId);
   const gameStatus = game.child('gameStatus');
   const board = game.child('board');
 
-  return (dispatch, state) => {
+  return (dispatch: any, state: any) => {
     const { fichasInPlay } = state();
 
     gameStatus.once('value').then((gameStatusData) => {
@@ -151,9 +151,9 @@ const readyPlayer = (gameId: any, player: any, uplayedFichas: any) => {
   Object.keys(uplayedFichas).map((ficha) =>
     deckArray.push(uplayedFichas[ficha])
   );
-  const playersFichas = pullAt(deckArray, [...Array(10).keys()]);
+  const playersFichas = pullAt(deckArray, [...Array.from(Array(10).keys())]);
 
-  return (dispatch) => {
+  return (dispatch: any) => {
     dispatch(updateUnplayedFichas(gameId, reconstructObject(deckArray)));
     dispatch(
       addFichasToPlayerDb(gameId, player, reconstructObject(playersFichas))
@@ -164,16 +164,16 @@ const readyPlayer = (gameId: any, player: any, uplayedFichas: any) => {
   };
 };
 
-const updateUnplayedFichas = (gameId, fichas) => {
+const updateUnplayedFichas = (gameId: any, fichas: any) => {
   return () => {
     firebase.database().ref(`${gameId}/uplayedFichas`).set(fichas);
   };
 };
 
-const addFichasToPlayerDb = (gameId, player, fichas) => {
+const addFichasToPlayerDb = (gameId: any, player: any, fichas: any) => {
   const userAgent = navigator.userAgent ? navigator.userAgent : null;
 
-  let playerGame = {};
+  let playerGame: any = {};
   playerGame[player] = fichas;
   playerGame[`_userAgents/${player}`] = userAgent;
 
@@ -182,14 +182,14 @@ const addFichasToPlayerDb = (gameId, player, fichas) => {
   };
 };
 
-const placeFichaOnBoard = (ficha, board) => {
+const placeFichaOnBoard = (ficha: any, board: any) => {
   return () => {
     board.push({ ...ficha, top: ficha.value[0], bottom: ficha.value[1] });
   };
 };
 
-const getFichasInPlayFromDb = (gameId) => {
-  return (dispatch) => {
+const getFichasInPlayFromDb = (gameId: any) => {
+  return (dispatch: any) => {
     firebase
       .database()
       .ref(`${gameId}/board`)
@@ -200,8 +200,8 @@ const getFichasInPlayFromDb = (gameId) => {
   };
 };
 
-const getPlayersFichasFromDb = (player, gameId) => {
-  return (dispatch) => {
+const getPlayersFichasFromDb = (player: any, gameId: any) => {
+  return (dispatch: any) => {
     firebase
       .database()
       .ref(`${gameId}/player/${player}`)
@@ -212,9 +212,9 @@ const getPlayersFichasFromDb = (player, gameId) => {
   };
 };
 
-const moveInsights = (fichasInPlay, target) => {
+const moveInsights = (fichasInPlay: any, target: any) => {
   const layout = Object.values(fichasInPlay)
-    .map((ficha) => ficha.renderPos)
+    .map((ficha: any) => ficha.renderPos)
     .sort((a, b) => a - b);
 
   if (target < layout[0] && target < layout[layout.length - 1]) {
@@ -226,8 +226,14 @@ const moveInsights = (fichasInPlay, target) => {
   }
 };
 
-const commitMove = (ficha, toPosition, board, gameStatus, player) => {
-  return (dispatch) => {
+const commitMove = (
+  ficha: any,
+  toPosition: any,
+  board: any,
+  gameStatus: any,
+  player: any
+) => {
+  return (dispatch: any) => {
     dispatch(removeFichaFromPlayer(ficha));
     dispatch(
       placeFichaOnBoard(
@@ -243,7 +249,7 @@ const commitMove = (ficha, toPosition, board, gameStatus, player) => {
   };
 };
 
-const nextPlayer = (gameStatus, player) => {
+const nextPlayer = (gameStatus: any, player: any) => {
   return () => {
     gameStatus.update({
       activePlayer: player == 'p2' ? 'p1' : 'p2',
@@ -252,26 +258,26 @@ const nextPlayer = (gameStatus, player) => {
   };
 };
 
-const removeFichaFromPlayer = ({ fichaId, player, gameId }) => {
+const removeFichaFromPlayer = ({ fichaId, player, gameId }: any) => {
   return () => {
     firebase.database().ref(`${gameId}/player/${player}/${fichaId}`).remove();
   };
 };
 
-const refreshBoardFichas = (gameId, fichas) => ({
+const refreshBoardFichas = (gameId: any, fichas: any) => ({
   type: types.REFRESH_BOARD,
   gameId,
   fichas,
 });
 
-const refreshPlayersFichas = (gameId, player, fichas) => ({
+const refreshPlayersFichas = (gameId: any, player: any, fichas: any) => ({
   type: types.REFRESH_FICHAS,
   gameId,
   player,
   fichas,
 });
 
-const getUpdatedGameState = (data, gameId) => ({
+const getUpdatedGameState = (data: any, gameId: any) => ({
   type: types.UPDATE_GAME_STATUS,
   gameId,
   data,

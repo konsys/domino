@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import classic from '../../assets/img/classic-mode.png';
 
 const ClassicMode = () => {
   return (
     <div className="selection-option-classic">
       <div>
-        <img src={classic} className="imac" alt="classid gameplay mode" />
+        <img
+          src={'../../assets/img/classic-mode.png'}
+          className="imac"
+          alt="classid gameplay mode"
+        />
         <Link to="/classic">
           <button className="selection-button">Classic</button>
         </Link>
@@ -20,7 +23,7 @@ const ClassicMode = () => {
 };
 
 ClassicMode.propTypes = {
-  handleInfoVis: PropTypes.func
+  handleInfoVis: PropTypes.func,
 };
 
 export default ClassicMode;

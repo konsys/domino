@@ -1,12 +1,14 @@
-export const getLeftMostFicha = fichaSet => {
+export const getLeftMostFicha = (fichaSet: any): any => {
   return Object.values(fichaSet).sort((a, b) => a.renderPos - b.renderPos)[0];
 };
 
-export const getRightMostFicha = fichaSet => {
-  return Object.values(fichaSet).sort((a, b) => b.renderPos - a.renderPos)[0];
+export const getRightMostFicha = (fichaSet: any): any => {
+  return Object.values(fichaSet).sort(
+    (a: any, b: any) => b.renderPos - a.renderPos
+  )[0];
 };
 
-export const matchLeft = (presentBoard, ficha) => {
+export const matchLeft = (presentBoard: any, ficha: any) => {
   const leftMost = getLeftMostFicha(presentBoard);
   if (ficha.value.indexOf(leftMost.top) == 0) {
     return 'flip';
@@ -17,7 +19,7 @@ export const matchLeft = (presentBoard, ficha) => {
   );
 };
 
-export const matchRight = (presentBoard, ficha) => {
+export const matchRight = (presentBoard: any, ficha: any) => {
   const rightMost = getRightMostFicha(presentBoard);
   if (ficha.value.indexOf(rightMost.bottom) == 1) {
     return 'flip';

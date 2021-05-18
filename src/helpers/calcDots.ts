@@ -1,4 +1,4 @@
-export function calcDots(value) {
+export function calcDots(value: any) {
   const dotPattern = [
     Array(9).fill(null),
     [null, null, null, null, 'dot', null, null, null, null],
@@ -9,7 +9,7 @@ export function calcDots(value) {
     ['dot', null, 'dot', 'dot', null, 'dot', 'dot', null, 'dot'],
     ['dot', null, 'dot', 'dot', 'dot', 'dot', 'dot', null, 'dot'],
     ['dot', 'dot', 'dot', 'dot', null, 'dot', 'dot', 'dot', 'dot'],
-    ['dot', 'dot', 'dot', 'dot', 'dot', 'dot', 'dot', 'dot', 'dot']
+    ['dot', 'dot', 'dot', 'dot', 'dot', 'dot', 'dot', 'dot', 'dot'],
   ];
   return dotPattern[value];
 }

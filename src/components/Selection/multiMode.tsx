@@ -6,12 +6,11 @@ import { startGame, grabFichas } from '../../actions';
 import { Redirect } from 'react-router-dom';
 import { styling } from './styling';
 import ConnectToDisplay from './connectDisplay';
-import controllerImage from '../../assets/img/controller.png';
 
-const MultiMode = ({ dispatch }) => {
-  const [gameState, setGameState] = useState({});
+const MultiMode = ({ dispatch }: any) => {
+  const [gameState, setGameState] = useState<any>({});
 
-  const gameCodeUserInput = React.createRef();
+  const gameCodeUserInput = React.createRef() as any;
 
   const handleIsHosting = () => {
     const randomGameId = randomWords(2).join('-');
@@ -20,7 +19,7 @@ const MultiMode = ({ dispatch }) => {
     setGameState({
       gameId: randomGameId,
       player,
-      mode: 'controller'
+      mode: 'controller',
     });
 
     dispatch(startGame(randomGameId, 'controller'));
@@ -38,7 +37,7 @@ const MultiMode = ({ dispatch }) => {
     }
   };
 
-  const handleDisplayConnect = gameCode => {
+  const handleDisplayConnect = (gameCode: any) => {
     //eslint-disable-next-line no-extra-boolean-cast
     if (!!gameCode.current.value) {
       const joinCode = gameCode.current.value.toLowerCase();
@@ -51,7 +50,7 @@ const MultiMode = ({ dispatch }) => {
       <Redirect
         to={{
           pathname: '/controller',
-          state: gameState
+          state: gameState,
         }}
       />
     );
@@ -60,7 +59,7 @@ const MultiMode = ({ dispatch }) => {
       <Redirect
         to={{
           pathname: '/display',
-          state: gameState
+          state: gameState,
         }}
       />
     );
@@ -68,7 +67,11 @@ const MultiMode = ({ dispatch }) => {
     return (
       <div className="selection-option-multi">
         <div className="selection-option-multi-box">
-          <img src={controllerImage} alt="controller mode" className="iphone" />
+          <img
+            src={'../../assets/img/controller.png'}
+            alt="controller mode"
+            className="iphone"
+          />
           <button className="selection-button-host" onClick={handleIsHosting}>
             Host
           </button>

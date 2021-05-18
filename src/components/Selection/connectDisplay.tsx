@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { styling } from './styling';
-import displayImage from '../../assets/img/display.png';
 
-const ConnectToDisplay = ({ handleDisplayConnect }) => {
-  const displayGameCode = React.createRef();
+const ConnectToDisplay = ({ handleDisplayConnect }: any) => {
+  const displayGameCode = React.createRef() as any;
 
   return (
     <div className="selection-option-multi-box" style={{ marginTop: '2em' }}>
-      <img src={displayImage} alt="connect display" className="ipad" />
+      <img
+        src={'../../assets/img/display.png'}
+        alt="connect display"
+        className="ipad"
+      />
       <p>
         Connect a display using your game code and gather around the screen.
       </p>

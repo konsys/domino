@@ -4,14 +4,14 @@ import Face from '../Face';
 import { STYLES } from '../../assets/styling';
 import '../../styles/ficha.css';
 
-function FichaDisplay({ value, fichaStyling, transform }) {
+function FichaDisplay({ value, fichaStyling, transform }: any) {
   return (
     <div
       style={{
         ...STYLES.activePlayersHand.ficha,
         ...STYLES.fichaStyling[fichaStyling],
         ...transform,
-        bottom: 0
+        bottom: 0,
       }}
     >
       <Face value={value[0]} />
@@ -24,7 +24,7 @@ function FichaDisplay({ value, fichaStyling, transform }) {
 FichaDisplay.propTypes = {
   value: PropTypes.array.isRequired,
   fichaStyling: PropTypes.string,
-  transform: PropTypes.object
+  transform: PropTypes.object,
 };
 
 export default FichaDisplay;

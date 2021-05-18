@@ -9,9 +9,9 @@ ReactDOM.render(
   </HashRouter>,
   document.getElementById('react-app-root')
 );
-
+// TODO uncomment
 /*eslint-disable */
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
 /*eslint-disable */

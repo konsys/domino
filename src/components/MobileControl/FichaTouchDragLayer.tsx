@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import PropTypes from 'prop-types';
 import { DragLayer } from 'react-dnd';
 import FichaDisplay from './FichaDisplay';
 
-const layerStyles = {
+const layerStyles: CSSProperties = {
   position: 'fixed',
   pointerEvents: 'none',
   zIndex: 100,
   left: 0,
   top: 0,
   width: '100%',
-  height: '100%'
+  height: '100%',
 };
 
-const getItemStyles = props => {
+const getItemStyles = (props: any) => {
   const { initialOffset, currentOffset } = props;
   if (!initialOffset || !currentOffset) {
     return {
-      display: 'none'
+      display: 'none',
     };
   }
   let { x, y } = currentOffset;
@@ -25,11 +25,11 @@ const getItemStyles = props => {
   const transform = `translate(${x}px, ${y}px)`;
   return {
     transform,
-    WebkitTransform: transform
+    WebkitTransform: transform,
   };
 };
 
-const FichaDragLayer = props => {
+const FichaDragLayer = (props: any) => {
   const { item, isDragging } = props;
 
   if (!isDragging) {
@@ -44,18 +44,18 @@ const FichaDragLayer = props => {
   );
 };
 
-const collect = monitor => {
+const collect = (monitor: any) => {
   return {
     item: monitor.getItem(),
     initialOffset: monitor.getInitialSourceClientOffset(),
     currentOffset: monitor.getSourceClientOffset(),
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
   };
 };
 
 FichaDragLayer.propTypes = {
   item: PropTypes.object,
-  isDragging: PropTypes.bool
+  isDragging: PropTypes.bool,
 };
 
 export default DragLayer(collect)(FichaDragLayer);
