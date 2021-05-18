@@ -1,10 +1,11 @@
 export interface IFicha {
-  value: string;
+  value: string[];
   gameId: string;
   player: string;
   position: number;
   fichaId: number;
   renderPos: number;
+  fichaStyling?: string;
 }
 
 export interface IGameStatus {

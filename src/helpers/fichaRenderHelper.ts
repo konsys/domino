@@ -1,5 +1,5 @@
-export const fichaRenderHelper = (pos: any) => {
-  const fichaStyling = [
+export const fichaRenderHelper = (pos: number): string | undefined => {
+  const fichaStyling: string[] = [
     'fichaOnBoardLeft',
     'fichaOnBoardRight',
     'fichaOnBoardMinus90',

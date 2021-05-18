@@ -8,29 +8,29 @@ function handleDrag(event: any, ficha: any) {
 }
 
 interface IProps {
-  values: string[];
+  value: string[];
   fichaId: number;
-  player: string;
-  gameId: string;
+  player?: string;
+  gameId?: string;
   fichaStyling: string;
-  renderPos: number;
+  renderPos?: number;
 }
 function Ficha(props: IProps) {
-  const { values, fichaId, player, gameId, fichaStyling } = props;
+  const { value, fichaId, player, gameId, fichaStyling } = props;
   return (
     <div
       draggable
       onDragStart={(event) =>
-        handleDrag(event, { fichaId, player, values, gameId })
+        handleDrag(event, { fichaId, player, value, gameId })
       }
       style={{
         ...STYLES.activePlayersHand.ficha,
         ...STYLES.fichaStyling[fichaStyling],
       }}
     >
-      <Face value={values[0]} />
+      <Face value={value[0]} />
       <hr style={STYLES.activePlayersHand.line} />
-      <Face value={values[1]} />
+      <Face value={value[1]} />
     </div>
   );
 }
