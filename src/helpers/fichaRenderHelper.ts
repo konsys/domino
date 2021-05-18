@@ -1,9 +1,9 @@
-export const fichaRenderHelper = pos => {
+export const fichaRenderHelper = (pos: any) => {
   const fichaStyling = [
     'fichaOnBoardLeft',
     'fichaOnBoardRight',
     'fichaOnBoardMinus90',
-    'fichaOnBoardPlus90'
+    'fichaOnBoardPlus90',
   ];
   if ((pos >= -12 && pos <= -5) || pos >= 6) {
     return fichaStyling[3];
@@ -16,12 +16,12 @@ export const fichaRenderHelper = pos => {
   }
 };
 
-export const fichaRenderHelperDisplay = pos => {
+export const fichaRenderHelperDisplay = (pos: any) => {
   const fichaStyling = [
     'fichaDisplayLeft',
     'fichaDisplayRight',
     'fichaDisplayMinus90',
-    'fichaDisplayPlus90'
+    'fichaDisplayPlus90',
   ];
   if ((pos >= -11 && pos <= -5) || (pos >= 5 && pos <= 11)) {
     return fichaStyling[3];

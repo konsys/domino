@@ -1,5 +1,7 @@
 export const getLeftMostFicha = (fichaSet: any): any => {
-  return Object.values(fichaSet).sort((a, b) => a.renderPos - b.renderPos)[0];
+  return Object.values(fichaSet).sort(
+    (a: any, b: any) => a.renderPos - b.renderPos
+  )[0];
 };
 
 export const getRightMostFicha = (fichaSet: any): any => {

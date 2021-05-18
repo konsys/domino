@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { STYLES } from '../assets/styling';
 
-function Player(props) {
+function Player(props: any) {
   const { name, isComputer, isActive } = props;
   const icon = isComputer ? '🤖' : '🧔🏻';
 
   const inactiveName = {
     color: '#00000080',
     fontStyle: 'italic',
-    margin: 0
+    margin: 0,
   };
 
   const activeName = {
     fontWeight: 700,
-    margin: 0
+    margin: 0,
   };
 
   return (
@@ -22,7 +22,7 @@ function Player(props) {
       <p
         style={{
           ...STYLES.player.face,
-          color: isActive ? '' : 'rgba(255,255,255,.5)'
+          color: isActive ? '' : 'rgba(255,255,255,.5)',
         }}
       >
         {icon}
@@ -35,7 +35,7 @@ function Player(props) {
 Player.propTypes = {
   name: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
-  isComputer: PropTypes.bool
+  isComputer: PropTypes.bool,
 };
 
 export default Player;

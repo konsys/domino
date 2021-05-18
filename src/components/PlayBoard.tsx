@@ -47,7 +47,7 @@ class PlayBoard extends React.Component<any, any> {
         onDragOver={(event) => {
           event.preventDefault();
         }}
-        onDragLeave={(event) => {
+        onDragLeave={(event: any) => {
           if (event.target.id) {
             document.getElementById(event.target.id).style.border = 'unset';
           }

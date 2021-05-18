@@ -5,7 +5,7 @@ import gameStatus from './gameStatus';
 const rootReducer = {
   players,
   fichasInPlay,
-  gameStatus
+  gameStatus,
 };
 
 export default rootReducer;

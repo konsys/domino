@@ -1,6 +1,6 @@
 import { buildFichaSet } from '../helpers/buildFichaSet';
 
-const getRandom = set => {
+const getRandom = (set: any) => {
   return Math.floor(Math.random() * Math.floor(set.length));
 };
 
