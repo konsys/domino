@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import randomWords from 'random-words'; //eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import { startGame, grabFichas } from '../actions';

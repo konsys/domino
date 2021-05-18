@@ -5,7 +5,6 @@ import { boardRenderHelperDisplay } from '../../helpers/boardRenderHelper';
 import { fichaRenderHelperDisplay } from '../../helpers/fichaRenderHelper';
 import { BOARD_STYLES } from './styling';
 import c from '../../constants';
-import domino from '../../assets/icons/domino.svg';
 
 export const PlayBoard = ({ fichas, gameStatus, gameId }: any) => {
   const { activePlayer } = gameStatus;
@@ -45,14 +44,18 @@ export const PlayBoard = ({ fichas, gameStatus, gameId }: any) => {
       <div style={BOARD_STYLES.status} className="status">
         <div style={BOARD_STYLES.playerInfo}>
           {activePlayer === 'p1' && (
-            <img src={domino.name} alt="ficha" style={BOARD_STYLES.icon} />
+            <img
+              src={'../../assets/icons/domino.svg'}
+              alt="ficha"
+              style={BOARD_STYLES.icon}
+            />
           )}
           p1
         </div>
         <div style={BOARD_STYLES.playerInfo}>
           {activePlayer === 'p2' && (
             <img
-              src={domino.name}
+              src={'../../assets/icons/domino.svg'}
               alt="ficha"
               style={{
                 ...BOARD_STYLES.icon,

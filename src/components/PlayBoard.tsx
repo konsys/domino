@@ -32,16 +32,18 @@ class PlayBoard extends React.Component<any, any> {
       <div
         style={STYLES.board}
         className="board"
-        onDrop={(event) => {
+        onDrop={(event: any) => {
           this.handleDrop(event, dispatch);
           if (event.target.id) {
-            document.getElementById(event.target.id).style.border = 'unset';
+            // TODO add style
+            // document.getElementById(event.target.id).style.border = 'unset';
           }
         }}
         onDragEnter={(event: any) => {
           if (event.target.id && !event.target.childElementCount) {
-            document.getElementById(event.target.id).style.border =
-              '5px dotted #99b999';
+            // TODO add style
+            // document.getElementById(event.target.id).style.border =
+            //   '5px dotted #99b999';
           }
         }}
         onDragOver={(event) => {
@@ -49,7 +51,8 @@ class PlayBoard extends React.Component<any, any> {
         }}
         onDragLeave={(event: any) => {
           if (event.target.id) {
-            document.getElementById(event.target.id).style.border = 'unset';
+            // TODO add style
+            // document.getElementById(event.target.id).style.border = 'unset';
           }
         }}
       >

@@ -7,8 +7,8 @@ import { watchHand, watchGame, skipPlayer } from '../actions';
 import { STYLES } from '../assets/styling';
 import { connect } from 'react-redux';
 
-class Hand extends React.Component {
-  constructor(props) {
+class Hand extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
   }
 
@@ -30,7 +30,7 @@ class Hand extends React.Component {
             bottom: '0px',
             left: '0px',
             textAlign: 'center',
-            padding: '.5em'
+            padding: '.5em',
           }}
         >
           <p style={{ margin: 0, fontSize: '2em' }}>{icon}</p>
@@ -39,7 +39,7 @@ class Hand extends React.Component {
           </p>
         </div>
         <div style={STYLES.activePlayersHand.fichas}>
-          {Object.values(fichas).map(ficha => (
+          {Object.values(fichas).map((ficha: any) => (
             <Ficha
               fichaStyling={'fichaInHand'}
               value={ficha.value}
@@ -67,15 +67,7 @@ class Hand extends React.Component {
   }
 }
 
-Hand.propTypes = {
-  dispatch: PropTypes.func,
-  fichas: PropTypes.object,
-  gameId: PropTypes.string,
-  player: PropTypes.string,
-  gameStatus: PropTypes.object
-};
-
-const propsFromState = (state, props) => {
+const propsFromState = (state: any, props: any) => {
   return { fichas: state.players[props.player], gameStatus: state.gameStatus };
 };
 

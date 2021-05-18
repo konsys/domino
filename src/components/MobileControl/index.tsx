@@ -7,8 +7,6 @@ import FichaTouch from './FichaTouch';
 import FichaTouchDragLayer from './FichaTouchDragLayer';
 import { DropZoneContainer } from './dropZoneContainer';
 import '../../styles/mobileControl.css';
-import skip from '../../assets/icons/skip.svg';
-import closeSolid from '../../assets/icons/closeSolid.svg';
 
 const FichaTouchBundler = ({ ficha, player, gameId }: any) => {
   return (
@@ -67,7 +65,11 @@ const MobileControl = (props: any) => {
           >
             {gameId}
             <button onClick={() => setShowGameCode('none')}>
-              <img src={closeSolid.name} alt="close" style={{ width: '4em' }} />
+              <img
+                src={'../../assets/icons/closeSolid.svg'}
+                alt="close"
+                style={{ width: '4em' }}
+              />
             </button>
           </div>
         )}
@@ -90,7 +92,11 @@ const MobileControl = (props: any) => {
             right: '1.3em',
           }}
         >
-          <img src={skip.name} alt="skip" style={{ width: '3em' }} />
+          <img
+            src={'../../assets/icons/skip.svg'}
+            alt="skip"
+            style={{ width: '3em' }}
+          />
         </button>
 
         {/* 

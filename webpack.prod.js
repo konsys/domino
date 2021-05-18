@@ -11,7 +11,7 @@ const projectTitle = 'react-domino'; //set this on start
 
 module.exports = {
   mode: 'production',
-  entry: [resolve(__dirname, 'src') + '/index.jsx'],
+  entry: [resolve(__dirname, 'src') + '/index.tsx'],
   output: {
     filename: 'app.bundle.js',
     path: resolve(__dirname, 'build'),
