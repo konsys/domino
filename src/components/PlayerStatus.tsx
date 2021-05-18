@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Player from './Player';
+import Player from './Player.tsx';
 import { STYLES } from '../assets/styling';
 import { connect } from 'react-redux';
 
@@ -15,7 +15,7 @@ function PlayerStatus(props) {
           fontFamily: 'monospace',
           textAlign: 'center',
           fontSize: '.8em',
-          color: 'rgb(64, 78, 67)'
+          color: 'rgb(64, 78, 67)',
         }}
       >
         {gameId}
@@ -38,14 +38,14 @@ function PlayerStatus(props) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { status: state.gameStatus };
 };
 
 PlayerStatus.propTypes = {
   dispatch: PropTypes.func.isRequired,
   gameId: PropTypes.string.isRequired,
-  status: PropTypes.object.isRequired
+  status: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(PlayerStatus);

@@ -8,7 +8,7 @@ import MobileControl from './MobileControl';
 
 import Display from './Display';
 
-import rootReducer from '../reducers';
+import rootReducer from '../reducers/index.st';
 import { Route, Switch } from 'react-router-dom';
 
 const combinedReducers = combineReducers(rootReducer);

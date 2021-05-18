@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FichaDisplay from './FichaDisplayBoard';
 import { boardRenderHelperDisplay } from '../../helpers/boardRenderHelper';
-import { fichaRenderHelperDisplay } from '../../helpers/fichaRenderHelper';
+import { fichaRenderHelperDisplay } from '../../helpers/fichaRenderHelper.ts';
 import { STYLES } from './styling';
 import c from '../../constants';
 import domino from '../../assets/icons/domino.svg';
@@ -57,7 +57,7 @@ const PlayBoard = ({ fichas, gameStatus, gameId }) => {
               style={{
                 ...STYLES.board.status.icon,
                 top: '0.33rem',
-                left: '8.75rem'
+                left: '8.75rem',
               }}
             />
           )}
@@ -73,7 +73,7 @@ const PlayBoard = ({ fichas, gameStatus, gameId }) => {
 PlayBoard.propTypes = {
   gameId: PropTypes.string.isRequired,
   fichas: PropTypes.object,
-  gameStatus: PropTypes.object
+  gameStatus: PropTypes.object,
 };
 
 export default PlayBoard;

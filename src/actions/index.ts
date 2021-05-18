@@ -7,14 +7,14 @@ import c from '../constants';
 import { v4 } from 'uuid';
 import { matchLeft, matchRight } from '../helpers/matchers';
 import { reconstructObject } from '../helpers/reconstructObject';
-import { fichaRenderHelper } from '../helpers/fichaRenderHelper';
+import { fichaRenderHelper } from '../helpers/fichaRenderHelper.ts';
 
 const { firebaseConf, types, gameStart } = c;
 
 firebase.initializeApp(firebaseConf);
 
-export const watchHand = (gameId, player) => {
-  return (dispatch) => {
+export const watchHand = (gameId: any, player: any) => {
+  return (dispatch: any) => {
     firebase
       .database()
       .ref(`${gameId}/player/${player}`)
@@ -135,7 +135,7 @@ export const makeMove = (ficha, target) => {
   };
 };
 
-export const skipPlayer = (player, gameId) => {
+export const skipPlayer = (player: any, gameId: any) => {
   return () => {
     firebase
       .database()
@@ -144,9 +144,9 @@ export const skipPlayer = (player, gameId) => {
   };
 };
 
-const readyPlayer = (gameId, player, uplayedFichas) => {
+const readyPlayer = (gameId: any, player: any, uplayedFichas: any) => {
   const pullAt = require('lodash.pullat');
-  let deckArray = [];
+  let deckArray: any = [];
 
   Object.keys(uplayedFichas).map((ficha) =>
     deckArray.push(uplayedFichas[ficha])
