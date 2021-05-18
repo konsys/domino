@@ -1,13 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Ficha from './Ficha';
 
 import { watchHand, watchGame, skipPlayer } from '../actions';
 
 import { STYLES } from '../assets/styling';
 import { connect } from 'react-redux';
+import { IFicha, IGameStatus } from 'helpers/gameTypes';
 
-class Hand extends React.Component<any, any> {
+class Hand extends React.Component<IGameStatus, any> {
   constructor(props: any) {
     super(props);
   }
@@ -39,7 +39,7 @@ class Hand extends React.Component<any, any> {
           </p>
         </div>
         <div style={STYLES.activePlayersHand.fichas}>
-          {Object.values(fichas).map((ficha: any) => (
+          {Object.values(fichas).map((ficha: IFicha) => (
             <Ficha
               fichaStyling={'fichaInHand'}
               value={ficha.value}

@@ -25,12 +25,12 @@ function PlayerStatus(props: any) {
           <Player
             name={'player1'}
             isComputer={false}
-            isActive={status.activePlayer == 'p1' ? true : false}
+            isActive={status.activePlayer === 'p1' ? true : false}
           />
           <Player
             name={'player2'}
             isComputer={true}
-            isActive={status.activePlayer == 'p2' ? true : false}
+            isActive={status.activePlayer === 'p2' ? true : false}
           />
         </div>
       </div>

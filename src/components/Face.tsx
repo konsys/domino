@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { STYLES } from '../assets/styling';
 import { calcDots } from '../helpers/calcDots';
 
-function Face(props: any) {
+function Face(props: { value: string }) {
   let i = 0;
   const dotPattern = calcDots(props.value);
 

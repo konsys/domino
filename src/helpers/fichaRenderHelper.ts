@@ -9,9 +9,9 @@ export const fichaRenderHelper = (pos: any) => {
     return fichaStyling[3];
   } else if (pos >= -3 && pos <= 4) {
     return fichaStyling[2];
-  } else if (pos == 5) {
+  } else if (pos === 5) {
     return fichaStyling[1];
-  } else if (pos == -4) {
+  } else if (pos === -4) {
     return fichaStyling[0];
   }
 };
@@ -31,10 +31,10 @@ export const fichaRenderHelperDisplay = (pos: any) => {
     (pos >= 13 && pos <= 19)
   ) {
     return fichaStyling[2];
-  } else if (pos == -12 || pos == 4 || pos == 19) {
+  } else if (pos === -12 || pos === 4 || pos === 19) {
     //right
     return fichaStyling[1];
-  } else if (pos == -4 || pos == 12) {
+  } else if (pos === -4 || pos === 12) {
     //left
     return fichaStyling[0];
   }

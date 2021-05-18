@@ -5,8 +5,8 @@ import { withRouter, Redirect } from 'react-router-dom';
 import { watchHand, watchGame, watchBoard, skipPlayer } from '../../actions';
 import FichaTouch from './FichaTouch';
 import FichaTouchDragLayer from './FichaTouchDragLayer';
-import { DropZoneContainer } from './dropZoneContainer';
 import '../../styles/mobileControl.css';
+import { IFicha, IGameStatus } from 'helpers/gameTypes';
 
 const FichaTouchBundler = ({ ficha, player, gameId }: any) => {
   return (
@@ -31,7 +31,7 @@ const FichaTouchBundler = ({ ficha, player, gameId }: any) => {
   );
 };
 
-const MobileControl = (props: any) => {
+const MobileControl = (props: IGameStatus) => {
   const [showGameCode, setShowGameCode] = useState('block');
 
   useEffect(() => {
@@ -108,7 +108,7 @@ const MobileControl = (props: any) => {
           /> */}
 
         <div className="mobile-control-fichas-deck">
-          {Object.values(fichas).map((ficha: any, i: number) => (
+          {Object.values(fichas).map((ficha: IFicha, i: number) => (
             <FichaTouchBundler
               ficha={ficha}
               gameId={gameId}
