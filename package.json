@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js --env.production -p",
+    "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --config ./webpack.dev.js --progress",
     "start-ext": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0",
-    "lint": "eslint 'src/**'; exit 0",
-    "lint-fix": "eslint 'src/**' --fix; exit 0",
+    "lint": "eslint --ext .ts,.js,.tsx,.jsx",
+    "lint-fix": "eslint --ext .ts,.js,.tsx,.jsx --fix",
     "serve": "webpack serve --config ./webpack.dev.js --progress"
   },
   "author": "",
@@ -46,6 +46,8 @@
     "react-hot-loader": "^4.13.0",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.2",
+    "ts-loader": "^9.1.2",
+    "typescript": "^4.2.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.37.0",
     "webpack-bundle-size-analyzer": "^3.1.0",

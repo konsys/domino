@@ -19,7 +19,7 @@ class Hand extends React.Component {
 
   render() {
     const { fichas, player, gameId, dispatch, gameStatus } = this.props;
-    const icon = player == 'p2' ? '🤖' : '🧔🏻';
+    const icon = player === 'p2' ? '🤖' : '🧔🏻';
 
     return (
       <div style={STYLES.activePlayersHand} className="activePlayersHand">
