@@ -8,7 +8,7 @@ const ConnectToDisplay = ({ handleDisplayConnect }: any) => {
   return (
     <div className="selection-option-multi-box" style={{ marginTop: '2em' }}>
       <img
-        src={'../../assets/img/display.png'}
+        src={require('../../assets/img/display.png').default}
         alt="connect display"
         className="ipad"
       />

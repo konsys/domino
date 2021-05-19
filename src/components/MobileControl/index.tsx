@@ -66,7 +66,7 @@ const MobileControl = (props: IGameStatus) => {
             {gameId}
             <button onClick={() => setShowGameCode('none')}>
               <img
-                src={'../../assets/icons/closeSolid.svg'}
+                src={require('../../assets/icons/closeSolid.svg').default}
                 alt="close"
                 style={{ width: '4em' }}
               />
@@ -93,7 +93,7 @@ const MobileControl = (props: IGameStatus) => {
           }}
         >
           <img
-            src={'../../assets/icons/skip.svg'}
+            src={require('../../assets/icons/skip.svg').default}
             alt="skip"
             style={{ width: '3em' }}
           />
@@ -136,17 +136,6 @@ const mapToStateProps = (state: any, props: any) => {
       player: props.location.state.player,
     };
   }
-};
-
-FichaTouchBundler.propTypes = {
-  ficha: PropTypes.object,
-  player: PropTypes.string,
-  gameId: PropTypes.string,
-};
-
-MobileControl.propTypes = {
-  location: PropTypes.object,
-  dispatch: PropTypes.func,
 };
 
 export default withRouter(

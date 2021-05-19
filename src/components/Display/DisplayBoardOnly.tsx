@@ -45,7 +45,7 @@ export const PlayBoard = ({ fichas, gameStatus, gameId }: any) => {
         <div style={BOARD_STYLES.playerInfo}>
           {activePlayer === 'p1' && (
             <img
-              src={'../../assets/icons/domino.svg'}
+              src={require('../../assets/icons/domino.svg').default}
               alt="ficha"
               style={BOARD_STYLES.icon}
             />
@@ -55,7 +55,7 @@ export const PlayBoard = ({ fichas, gameStatus, gameId }: any) => {
         <div style={BOARD_STYLES.playerInfo}>
           {activePlayer === 'p2' && (
             <img
-              src={'../../assets/icons/domino.svg'}
+              src={require('../../assets/icons/domino.svg').default}
               alt="ficha"
               style={{
                 ...BOARD_STYLES.icon,

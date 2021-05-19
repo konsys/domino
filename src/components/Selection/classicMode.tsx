@@ -7,7 +7,7 @@ const ClassicMode = () => {
     <div className="selection-option-classic">
       <div>
         <img
-          src={'../../assets/img/classic-mode.png'}
+          src={require('../../assets/img/classic-mode.png').default}
           className="imac"
           alt="classid gameplay mode"
         />

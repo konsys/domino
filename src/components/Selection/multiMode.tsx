@@ -68,7 +68,7 @@ const MultiMode = ({ dispatch }: any) => {
       <div className="selection-option-multi">
         <div className="selection-option-multi-box">
           <img
-            src={'../../assets/img/controller.png'}
+            src={require('../../assets/img/controller.png').default}
             alt="controller mode"
             className="iphone"
           />

@@ -17,7 +17,7 @@ function GameSelect(props: any) {
   return (
     <div>
       <img
-        src={'../assets/img/domino-lean.png'}
+        src={require('../assets/img/domino-lean.png').default}
         style={STYLES.gameSelect.image}
       />
       <div style={STYLES.gameSelect}>
@@ -43,12 +43,12 @@ function GameSelect(props: any) {
         <div style={STYLES.gameSelect.footer} className="footer">
           <a
             style={{ color: 'white', textDecoration: 'none' }}
-            href="https://github.com/pseudoralph/react-domino"
+            href=""
             rel="noopener noreferrer"
             target="_blank"
           >
             <img
-              src={'../assets/img/github_white.png'}
+              src={require('../assets/img/github_white.png').default}
               style={STYLES.gameSelect.footer.image}
             />
             <p
